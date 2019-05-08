@@ -1,0 +1,138 @@
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #398dc9;
+  /* Old browsers fallback */
+  background: -moz-linear-gradient(45deg, #398dc9 0%, #2989d8 35%, #c843a0 100%);
+  background: -webkit-linear-gradient(45deg, #398dc9 0%, #2989d8 35%, #c843a0 100%);
+  background: linear-gradient(45deg, #398dc9 0%, #2989d8 35%, #c843a0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-blue', endColorstr='$color-pink',GradientType=1 ); }
+
+.wrapper {
+  width: 90%;
+  position: relative;
+  margin: 0 auto; }
+  .wrapper header {
+    text-align: center;
+    padding-top: 1rem;
+    color: white; }
+    .wrapper header h1 {
+      font-weight: 100; }
+    .wrapper header h4 {
+      font-weight: 400;
+      margin-top: 0; }
+  .wrapper .flexContainer {
+    display: flex; }
+  .wrapper .flexSpaceAround {
+    justify-content: space-around; }
+  .wrapper .flexSpaceBetween {
+    justify-content: space-between; }
+  .wrapper .col {
+    border: 1px solid #2989d8;
+    border-radius: 1rem;
+    background: white;
+    width: 32%; }
+    .wrapper .col + .col {
+      margin-left: 1rem; }
+    .wrapper .col .card {
+      position: relative;
+      overflow: hidden;
+      background-color: rgba(57, 141, 201, 0.1);
+      border: 1px solid #398dc9;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem; }
+      .wrapper .col .card .aircraft {
+        font-weight: bold;
+        margin: .2rem 0;
+        color: #398dc9; }
+      .wrapper .col .card .progress {
+        background-color: white; }
+        .wrapper .col .card .progress .bar {
+          background-color: #398dc9;
+          color: white;
+          padding: .4rem;
+          text-align: right;
+          font-size: .8rem; }
+      .wrapper .col .card:hover, .wrapper .col .card.selected:hover {
+        background-color: rgba(57, 141, 201, 0.3);
+        cursor: pointer; }
+      .wrapper .col .card.selected {
+        border-width: .2rem;
+        background-color: rgba(57, 141, 201, 0.3);
+        border-color: #2989d8; }
+      .wrapper .col .card.need-optimisation {
+        background-color: rgba(200, 67, 160, 0.1);
+        border: 1px solid #c843a0; }
+        .wrapper .col .card.need-optimisation .aircraft {
+          color: #c843a0; }
+        .wrapper .col .card.need-optimisation .progress {
+          background-color: white; }
+          .wrapper .col .card.need-optimisation .progress .bar {
+            background-color: #c843a0; }
+        .wrapper .col .card.need-optimisation:hover, .wrapper .col .card.need-optimisation.selected:hover {
+          background-color: rgba(200, 67, 160, 0.3);
+          cursor: pointer; }
+        .wrapper .col .card.need-optimisation.selected {
+          border-width: .2rem;
+          background-color: rgba(200, 67, 160, 0.2); }
+        .wrapper .col .card.need-optimisation:hover {
+          background-color: rgba(200, 67, 160, 0.2); }
+      .wrapper .col .card:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform .5s, opacity 1s; }
+      .wrapper .col .card:active:after {
+        transform: scale(0, 0);
+        opacity: .3;
+        transition: 0s; }
+    .wrapper .col #scheduled .departure, .wrapper .col #scheduled .arrival {
+      font-family: Helvetica, Arial, sans-serif;
+      width: 3.5rem;
+      color: #2989d8;
+      font-weight: 500; }
+    .wrapper .col #scheduled .arrival {
+      text-align: right; }
+    .wrapper .col #scheduled p {
+      width: 100%;
+      text-align: center;
+      margin: 0 0 1rem 0;
+      font-weight: 400;
+      color: #2989d8; }
+    .wrapper .col ul#flights {
+      list-style: none;
+      font-size: .8rem;
+      margin: 2rem 0; }
+      .wrapper .col ul#flights li {
+        margin: .5rem 0; }
+        .wrapper .col ul#flights li:hover {
+          cursor: pointer;
+          color: #c843a0; }
+    .wrapper .col p.timeline {
+      width: 100%;
+      text-align: center; }
+    .wrapper .col .chart {
+      width: 100%;
+      height: 2rem;
+      background: -moz-linear-gradient(left, #c843a0 0%, #c843a0 30%, #43cf43 30%, #43cf43 59%, #ddd 59%, #ddd 75%, #ddd 75%, #43cf43 75%, #43cf43 75%, #43cf43 100%);
+      background: -webkit-linear-gradient(left, #c843a0 0%, #c843a0 30%, #43cf43 30%, #43cf43 59%, #ddd 59%, #ddd 75%, #ddd 75%, #43cf43 75%, #43cf43 75%, #43cf43 100%);
+      background: linear-gradient(to right, #c843a0 0%, #c843a0 30%, #43cf43 30%, #43cf43 59%, #ddd 59%, #ddd 75%, #ddd 75%, #43cf43 75%, #43cf43 75%, #43cf43 100%); }
+
+/*# sourceMappingURL=styles.css.map */

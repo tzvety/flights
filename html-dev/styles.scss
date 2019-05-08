@@ -1,0 +1,207 @@
+// Variables
+    $color-blue: #398dc9;
+    $color-darker-blue: #2989d8;
+    $color-pink: #c843a0;
+    $color-green: #43cf43;
+    $color-grey: #ddd;
+    $border-radius: 1rem;
+
+// Layout   
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        margin: 0;
+        
+        font-family: 'Raleway', sans-serif;
+        
+        background-repeat: no-repeat;
+        background-size: cover;
+        background: $color-blue; /* Old browsers fallback */
+        background: -moz-linear-gradient(45deg, $color-blue 0%, $color-darker-blue 35%, $color-pink 100%); 
+        background: -webkit-linear-gradient(45deg, $color-blue 0%,$color-darker-blue 35%,$color-pink 100%);
+        background: linear-gradient(45deg, $color-blue 0%,$color-darker-blue 35%,$color-pink 100%); 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-blue', endColorstr='$color-pink',GradientType=1 ); 
+    }
+
+    .wrapper {
+        width: 90%;
+        position: relative;
+        margin: 0 auto;
+
+        header {
+            text-align: center;
+            padding-top: 1rem;
+            color: white;
+        
+            h1 {
+                font-weight: 100;
+            }
+
+            h4 {
+                font-weight: 400;
+                margin-top: 0;
+            }
+        }
+
+        // Flex grid
+        .flexContainer { display: flex; }
+        .flexSpaceAround { justify-content: space-around; }
+        .flexSpaceBetween { justify-content: space-between;}
+    
+        .col {
+            border: 1px solid $color-darker-blue;
+            border-radius: $border-radius;
+            background: white;
+            width: 32%;
+
+            & + .col {
+                margin-left: 1rem
+            }
+
+            .card {
+                position: relative;
+                overflow: hidden;
+                background-color: rgba( $color-blue, .1 );
+                border: 1px solid $color-blue;
+                border-radius: $border-radius;
+                padding: 1rem;
+                margin: 1rem;
+
+                // Default state styling (utilisation > 50%)
+                .aircraft {
+                    font-weight: bold;
+                    margin: .2rem 0;
+                    color: $color-blue;
+                }
+            
+                .progress {
+                    background-color:white;
+                    .bar {
+                        background-color:$color-blue;
+                        color: white;
+                        padding: .4rem;
+                        text-align: right;
+                        font-size: .8rem;
+                    }
+                }
+
+                &:hover, &.selected:hover {
+                    background-color: rgba( $color-blue, .3 );
+                    cursor: pointer;
+                }
+
+                &.selected {
+                    border-width: .2rem;
+                    background-color: rgba( $color-blue, .3 );
+                    border-color: $color-darker-blue;
+                }
+
+                 // Needs optimisation state styling (utilisation < 50%)
+                &.need-optimisation {
+                    background-color: rgba( $color-pink, .1 );
+                    border: 1px solid $color-pink;
+                
+                    .aircraft {
+                        color: $color-pink;
+                    }
+                
+                    .progress {
+                        background-color: white;
+                        .bar {
+                            background-color:$color-pink;
+                        }
+                    }
+
+                    &:hover, &.selected:hover {
+                        background-color: rgba( $color-pink, .3 );
+                        cursor: pointer;
+                    }
+            
+                    &.selected {
+                        border-width: .2rem;
+                        background-color: rgba( $color-pink, .2 );
+                    }
+
+                    &:hover {
+                        background-color: rgba( $color-pink, .2 );
+                    }
+                }
+
+                // Ripple Effect on click for better UX
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    pointer-events: none;
+                    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+                    background-repeat: no-repeat;
+                    background-position: 50%;
+                    transform: scale(10, 10);
+                    opacity: 0;
+                    transition: transform .5s, opacity 1s;
+                }
+
+                &:active:after {
+                    transform: scale(0, 0);
+                    opacity: .3;
+                    transition: 0s;
+                }
+
+            }
+            #scheduled {
+                .departure, .arrival {
+                    font-family: Helvetica, Arial, sans-serif;
+                    width: 3.5rem;
+                    color: $color-darker-blue;
+                    font-weight: 500;
+                }
+
+                .arrival {
+                    text-align: right;
+                } 
+
+                p {
+                    width: 100%;
+                    text-align: center;
+                    margin:0 0 1rem 0;
+                    font-weight: 400;
+                    color: $color-darker-blue;
+                }
+            }
+
+            ul#flights {
+                list-style: none;
+                font-size: .8rem;
+                margin: 2rem 0;
+                li {
+                    margin: .5rem 0;
+                    &:hover {
+                        cursor: pointer;
+                        color: $color-pink;
+                    }
+                }
+            }
+
+            p.timeline {
+                width: 100%;
+                text-align: center;
+            }
+
+            // Mocked example of timeline chart with gradient
+            .chart {
+                width: 100%;
+                height: 2rem;
+                background: -moz-linear-gradient(left, $color-pink 0%, $color-pink 30%,  $color-green 30%,  $color-green 59%,  $color-grey 59%,  $color-grey 75%,  $color-grey 75%,  $color-green 75%,  $color-green 75%,  $color-green 100%); 
+                background: -webkit-linear-gradient(left, $color-pink 0%,$color-pink 30%, $color-green 30%, $color-green 59%, $color-grey 59%, $color-grey 75%, $color-grey 75%, $color-green 75%, $color-green 75%, $color-green 100%); 
+                background: linear-gradient(to right, $color-pink 0%,$color-pink 30%, $color-green 30%, $color-green 59%, $color-grey 59%, $color-grey 75%, $color-grey 75%, $color-green 75%, $color-green 75%, $color-green 100%);
+            }
+        }
+    }
+

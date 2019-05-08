@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<title>Aircraft Scheduling</title>
+        <meta name="description" content="Aircraft Scheduling Task">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+        
+		<link rel="stylesheet" href="assets/styles.css">
+	</head>
+	<body>
+		<!--[if lt IE 8]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+        <div class="wrapper">
+
+            <header>
+                <h1>Aircraft Scheduling</h1>
+                <h4>
+                    Rotation 
+                    <!-- This span content could be changed depending on Aircraft selected -->
+                    <span class="aircraft-name">ABCDE</span> 
+                    for 
+                    <!-- This span could be replacerd with a datepicker for better user experience -->
+                    <b class="datepicker">4 January 2018</b>
+                </h4>
+            </header>
+
+            <!-- Data-source for flights URL -->
+            <section id="rotation" data-source="https://infinite-dawn-93085.herokuapp.com/flights">
+
+                <div class="flexContainer flexSpaceAround">
+                    
+                    <div class="col">
+
+                        <!-- Ideally, this should be added dynamiclly and progressbar should reflect the utilisation in % -->
+                        <div class="card planes" data-id="ABCDE">
+                            <div class="aircraft">
+                                <i class="fas fa-plane"></i> ABCDE
+                            </div>
+                            <div class="progress">
+                                <div class="bar" style="width:75%">75%</div>
+                            </div>
+                        </div>
+
+                        <!-- For better UX, I think that showing aircrafts with utilisation below 50% in a different color would be anice approach. So, I've mocked 'need-optimisation' class for that -->
+                        <!-- 
+                        <div class="card planes need-optimisation" data-id="FGHIJ">
+                            <div class="aircraft">
+                                <i class="fas fa-plane"></i> FGHIJ
+                            </div>
+                            <div class="progress">
+                                <div class="bar" style="width:45%">45%</div>
+                            </div>
+                        </div>  -->
+                            
+                    </div>
+
+                    <div class="col">
+                        <!-- I've repositioned the timeline before the flights' list for better UX. -->
+                        <div class="timeline-container" style="display: none">
+                            <p class="timeline">Timeline</p>
+                            <!-- In my opinion, the coloring should be added dynamically as CSS gradient propety. Although it's hardcoded now, it could be generated quickly and even animated if needed.  -->
+                            <div class="chart"></div>
+                        </div>
+
+                        <div id="scheduled">
+                            <!-- Here come the scheduled flights -->
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <ul id="flights">
+                            <!-- Here is the list of all available flights -->
+                        </ul>             
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <span>Aircraft Scheduling by Tsvetana Nikova</span>
+            </footer>
+
+        </div>
+
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+		<script src="assets/scripts.js"></script>
+	</body>
+</html>
